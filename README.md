@@ -6,7 +6,7 @@ julia> using ExampleMonorepo
 
 julia> names(ExampleMonorepo)
 3-element Vector{Symbol}:
- Symbol("@using_Submodule1")
+ Symbol("@using")
  :ExampleMonorepo
  :Foo
  
@@ -16,7 +16,7 @@ Suggestion: check for spelling errors or missing imports.
 
 ``` 
 ```julia
-julia> @using_Submodule1
+julia> ExampleMonorepo.@using Submodule1
 [ Info: Precompiling Submodule1 [84d07829-0b5c-5d43-bb2b-2750b0c51663]
 
 julia> names(Submodule1)
@@ -28,7 +28,7 @@ julia> Bar(Foo(1))
 Bar(Foo{Int64}(1))
 ```
 
-The struct `Bar` came from the `[extension]` `Submodule1`, and it was only loaded when we did `@using_Submodule1`. 
+The struct `Bar` came from the `[extension]` `Submodule1`, and it was only loaded when we did `ExampleMonorepo.@using Submodule1`. 
 
 ``` julia
 julia> methods(Bar)
